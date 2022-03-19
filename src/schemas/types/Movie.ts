@@ -1,7 +1,7 @@
 import { builder, db } from '../builder';
 
 builder.prismaObject('Movie', {
-  findUnique: null,
+  findUnique: (movie) => ({ id: movie.id }),
   name: 'Movie',
   fields: (t) => ({
     id: t.exposeID('id'),
@@ -12,9 +12,7 @@ builder.prismaObject('Movie', {
     releasedAt: t.expose('releasedAt', { type: 'Date' }),
     createdAt: t.expose('createdAt', { type: 'Date' }),
     updatedAt: t.expose('updatedAt', { type: 'Date' }),
-    reviews: t.relation('Review', {
-      resolve: (query) => db.review.findMany({ ...query })
-    })
+    reviews: t.relation('Review')
   })
 });
 
@@ -29,7 +27,16 @@ builder.queryField('movieById', (t) =>
   t.prismaField({
     type: 'Movie',
     nullable: true,
-    resolve: async (query) => db.movie.findUnique({ ...query, where: { id: '' } })
+    args: {
+      id: t.arg.string({ required: true })
+    },
+    resolve: async (query, _parent, args) =>
+      db.movie.findUnique({
+        ...query,
+        where: {
+          id: args.id
+        }
+      })
   })
 );
 

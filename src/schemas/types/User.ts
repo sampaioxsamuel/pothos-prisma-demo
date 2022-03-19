@@ -12,9 +12,7 @@ builder.prismaObject('User', {
       type: 'String',
       nullable: true
     }),
-    reviews: t.relation('Review', {
-      resolve: (query) => db.review.findMany({ ...query })
-    })
+    reviews: t.relation('Review')
   })
 });
 

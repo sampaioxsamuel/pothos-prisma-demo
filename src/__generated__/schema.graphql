@@ -19,7 +19,7 @@ type Mutation {
 }
 
 type Query {
-  movieById: Movie
+  movieById(id: String!): Movie
   movies: [Movie!]!
   reviews: [Review!]!
   users: [User!]!
@@ -28,9 +28,9 @@ type Query {
 type Review {
   description: String!
   id: ID!
-  movie: Movie
+  movie: Movie!
   movieId: String!
-  reviewer: User
+  reviewer: User!
   reviewerId: String!
 }
 

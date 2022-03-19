@@ -1,40 +1,22 @@
 import { builder, db } from '../builder';
 
 builder.prismaObject('Review', {
-  findUnique: null,
+  findUnique: (review) => ({ id: review.id }),
   name: 'Review',
   fields: (t) => ({
     id: t.exposeID('id'),
     description: t.exposeString('description'),
     movieId: t.exposeString('movieId'),
     reviewerId: t.exposeString('reviewerId'),
-    movie: t.relation('movie', {
-      nullable: true,
-      resolve: (query, parent) =>
-        db.movie.findFirst({
-          ...query,
-          where: {
-            id: parent.movieId
-          }
-        })
-    }),
-    reviewer: t.relation('reviewer', {
-      nullable: true,
-      resolve: (query, parent) =>
-        db.user.findFirst({
-          ...query,
-          where: {
-            id: parent.reviewerId
-          }
-        })
-    })
+    movie: t.relation('movie'),
+    reviewer: t.relation('reviewer')
   })
 });
 
 builder.queryField('reviews', (t) =>
   t.prismaField({
     type: ['Review'],
-    resolve: async () => db.review.findMany()
+    resolve: async (query) => db.review.findMany({ ...query })
   })
 );
 
