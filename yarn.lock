@@ -140,12 +140,28 @@
   resolved "https://registry.yarnpkg.com/@pothos/core/-/core-3.3.3.tgz#c7ab8bab1eb6e0bed588e107b9142ab446ef575a"
   integrity sha512-xDd22CSORazbSQRSYURCYGxs9qToHun1DdbHVS0UOMIfp5dpM2JfJyuZVDh3PlfLAOi7gYVQ2LIh+fqKjT4mAQ==
 
+"@pothos/plugin-prisma@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-prisma/-/plugin-prisma-3.1.0.tgz#e1311cb2bc80127c1ad0353d682a977862ad2d29"
+  integrity sha512-L3BHI+OReT3wiCB2tBGi18TYqcOsClwoEXN877cnYku/EFPed70KyFc1Sm4sKcDoOq5hsZeuB1Yg0EUBAYWBAA==
+  dependencies:
+    "@prisma/generator-helper" "^3.10.0"
+
 "@prisma/client@^3.11.0":
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-3.11.0.tgz#6aa05165b641578c74816aaa15b389e0062318ee"
   integrity sha512-d42o/tlalaWMmNOR4r5BiR6YYTYEV82eZ2lNKOm5ht3WyYwI9e+zy2MyZnNO4Fx5e08RAhW+GRVcEgKl5faUaQ==
   dependencies:
     "@prisma/engines-version" "3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"
+
+"@prisma/debug@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-3.11.0.tgz#c4e2fadd617a82f54622aad93472dfd2c01b6808"
+  integrity sha512-hbOU50++HdE0Xdt0FenrVvCteTvRg8EHNGKkxa1jWIB8O2o0bkm5igOlhfYGkvHZ3H1GK35oZp7rllMVeMM4ig==
+  dependencies:
+    "@types/debug" "4.1.7"
+    ms "2.1.3"
+    strip-ansi "6.0.1"
 
 "@prisma/engines-version@3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b":
   version "3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"
@@ -156,6 +172,16 @@
   version "3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b"
   resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-3.11.0-48.b371888aaf8f51357c7457d836b86d12da91658b.tgz#4c1093f7b24c433a9cef2e60f13f57f7c89b5cfa"
   integrity sha512-m9iZd5F5vP6A2IvKWfHpOO/qK8OOO9nbsV/pdyEkF/1WNe0E8SIWFBKb+HcMLkG9OFbDDBy8QItXmp/mIULuwQ==
+
+"@prisma/generator-helper@^3.10.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-3.11.0.tgz#56bf4992aab40b90083c083741113270dc7eac98"
+  integrity sha512-flxbnlXwlAPIAipszn6pV+OzB5G29va2q5TMg6nu2h0mCUgUYohUl/6U4885FW966kKQivH/ArxHHFaVOWxjXQ==
+  dependencies:
+    "@prisma/debug" "3.11.0"
+    "@types/cross-spawn" "6.0.2"
+    chalk "4.1.2"
+    cross-spawn "7.0.3"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -257,6 +283,20 @@
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.12.tgz#6b2c510a7ad7039e98e7b8d3d6598f4359e5c080"
   integrity sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==
 
+"@types/cross-spawn@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.2.tgz#168309de311cd30a2b8ae720de6475c2fbf33ac7"
+  integrity sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==
+  dependencies:
+    "@types/node" "*"
+
+"@types/debug@4.1.7":
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
+  integrity sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==
+  dependencies:
+    "@types/ms" "*"
+
 "@types/express-serve-static-core@4.17.28", "@types/express-serve-static-core@^4.17.18":
   version "4.17.28"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.28.tgz#c47def9f34ec81dc6328d0b1b5303d1ec98d86b8"
@@ -290,6 +330,11 @@
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
+
+"@types/ms@*":
+  version "0.7.31"
+  resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
+  integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/node@*", "@types/node@^17.0.21":
   version "17.0.21"
@@ -619,7 +664,7 @@ callsites@^3.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-chalk@^4.0.0:
+chalk@4.1.2, chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -684,7 +729,7 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-cross-spawn@^7.0.2:
+cross-spawn@7.0.3, cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -1061,6 +1106,13 @@ globby@^11.0.4:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
+
+graphql-scalars@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.15.0.tgz#798b9aa12bcbe56be32d62aadc2cd67e22ba63c4"
+  integrity sha512-uLi71egHsfF+A4XmnltPYRUnvy8uBsobRjhW6aBi305gpE/v52xkuKcjygV0CqeqdvRKmFhczh9HRx1lho2MRw==
+  dependencies:
+    tslib "~2.3.0"
 
 graphql-tag@^2.11.0:
   version "2.12.6"
@@ -1534,7 +1586,7 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-strip-ansi@^6.0.1:
+strip-ansi@6.0.1, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
