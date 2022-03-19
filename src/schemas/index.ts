@@ -1,9 +1,15 @@
 import { builder } from './builder';
-
+import { lexicographicSortSchema, printSchema } from 'graphql';
+import { writeFileSync } from 'fs';
 import './types';
-import './Movie';
-import './Review';
 
 builder.queryType({});
+builder.mutationType({});
 
-export default builder.toSchema({});
+const schema = builder.toSchema({});
+
+export default schema;
+
+const schemaAsString = printSchema(lexicographicSortSchema(schema));
+
+writeFileSync('./src/__generated__/schema.graphql', schemaAsString);

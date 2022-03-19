@@ -1,0 +1,43 @@
+scalar Date
+
+type Movie {
+  createdAt: Date!
+  description: String!
+  director: String!
+  genre: String!
+  id: ID!
+  name: String!
+  releasedAt: Date!
+  reviews: [Review!]!
+  updatedAt: Date!
+}
+
+type Mutation {
+  createMovie(description: String!, director: String!, genre: String!, name: String!, releasedAt: Date!): Movie!
+  createReview(description: String!, movieId: String!, reviewerId: String!): Review!
+  createUser(email: String!, name: String!, password: String!, username: String!): User!
+}
+
+type Query {
+  movieById: Movie
+  movies: [Movie!]!
+  reviews: [Review!]!
+  users: [User!]!
+}
+
+type Review {
+  description: String!
+  id: ID!
+  movie: Movie
+  movieId: String!
+  reviewer: User
+  reviewerId: String!
+}
+
+type User {
+  email: String
+  id: ID!
+  name: String!
+  reviews: [Review!]!
+  username: String!
+}

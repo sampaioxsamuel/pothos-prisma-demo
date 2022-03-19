@@ -1,54 +1,50 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 generator pothos {
   provider     = "prisma-pothos-types"
-  clientOutput = "@prisma/client"
   output       = "../src/__generated__/index.ts"
+  clientOutput = "@prisma/client"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id       String  @id() @default(uuid())
-  name     String
-  username String  @unique
-  password String
-  email    String?
-
+  id        String   @id @default(uuid())
+  name      String
+  username  String   @unique
+  password  String
+  email     String?
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+  updatedAt DateTime @updatedAt
   Review    Review[]
 }
 
 model Movie {
-  id          String   @id() @default(uuid())
+  id          String   @id @default(uuid())
   name        String
   releasedAt  DateTime
   director    String
   genre       String
   description String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-  Review    Review[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Review      Review[]
 }
 
 model Review {
-  id        String   @id() @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+  id          String   @id @default(uuid())
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  movie   Movie  @relation(fields: [movieId], references: [id])
-  movieId String
 
-  reviewer   User   @relation(fields: [reviewerId], references: [id])
+  movieId    String
   reviewerId String
+  movie      Movie  @relation(fields: [movieId], references: [id])
+  reviewer   User   @relation(fields: [reviewerId], references: [id])
 }
